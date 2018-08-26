@@ -5,19 +5,11 @@ import logger from 'redux-logger';
 
 import { createBrowserHistory } from 'history';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
+import { reducers } from './main.reducer';
 
 const history = createBrowserHistory();
 
-const initialState = {};
-
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
-
 export const store = createStore(
-  connectRouter(history)(reducer),
+  connectRouter(history)(reducers),
   composeWithDevTools(applyMiddleware(thunk, logger, routerMiddleware(history)))
 );
