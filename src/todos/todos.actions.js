@@ -8,7 +8,7 @@ export const DELETE_TODO = '@@TODOS/DELETE_TODO';
  * @param {Object} todo
  * @param {string} todo.label
  * @param {boolean} todo.done
- *
+ * @param {number} todo.key
  */
 export const addTodo = todo => ({
   type: ADD_TODO,
