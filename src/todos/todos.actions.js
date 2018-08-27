@@ -10,11 +10,13 @@ export const DELETE_TODO = '@@TODOS/DELETE_TODO';
  * @param {boolean} todo.done
  * @param {number} todo.key
  */
-export const addTodo = todo => ({
-  type: ADD_TODO,
-  payload: { todo }
-});
-
+export const addTodo = todo => {
+  console.log(todo);
+  return {
+    type: ADD_TODO,
+    payload: { todo }
+  };
+};
 export const deleteTodo = key => ({
   type: DELETE_TODO,
   payload: { key }
