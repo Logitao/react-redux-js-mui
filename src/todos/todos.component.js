@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addTodo, deleteTodo } from './todos.actions';
+import { withRouter } from 'react-router';
 
 export class TodoComponent extends Component {
   static propTypes = {
@@ -66,7 +67,9 @@ const mapDispatchToProps = dispatch => ({
   deleteTodo: key => dispatch(deleteTodo(key))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoComponent);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(TodoComponent)
+);

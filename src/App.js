@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TodoComponent from './todos/todos.component';
-
+import { withRouter } from 'react-router';
 class App extends Component {
   render() {
     return (
@@ -11,4 +11,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default withRouter(App);
