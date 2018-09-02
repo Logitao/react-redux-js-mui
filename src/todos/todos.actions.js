@@ -11,18 +11,18 @@ export const DELETE_TODO = '@@TODOS/DELETE_TODO';
  * @param {number} todo.key
  */
 export const addTodo = todo => {
-  console.log(todo);
-  return {
-    type: ADD_TODO,
-    payload: { todo }
-  };
+    console.log(todo);
+    return {
+        type: ADD_TODO,
+        payload: { todo }
+    };
 };
 export const deleteTodo = key => ({
-  type: DELETE_TODO,
-  payload: { key }
+    type: DELETE_TODO,
+    payload: { key }
 });
 
 export const setVisibilityTodo = (key, visible) => ({
-  type: SET_VISIBILITY_TODO,
-  payload: { key, visible }
+    type: SET_VISIBILITY_TODO,
+    payload: { key, visible }
 });

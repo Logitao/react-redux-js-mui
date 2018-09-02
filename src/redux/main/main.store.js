@@ -10,6 +10,8 @@ import { reducers } from './main.reducer';
 const history = createBrowserHistory();
 
 export const store = createStore(
-  connectRouter(history)(reducers),
-  composeWithDevTools(applyMiddleware(thunk, logger, routerMiddleware(history)))
+    connectRouter(history)(reducers),
+    composeWithDevTools(
+        applyMiddleware(thunk, logger, routerMiddleware(history))
+    )
 );

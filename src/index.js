@@ -10,21 +10,21 @@ import { store } from './redux/main/main.store';
 import RouteWithSubRoutes from './router/subrouter';
 
 const routes = [
-  {
-    path: '/',
-    component: App
-  }
+    {
+        path: '/',
+        component: App
+    }
 ];
 
 const routeComponents = routes.map(route => (
-  <RouteWithSubRoutes key={route.path} {...route} />
+    <RouteWithSubRoutes key={route.path} {...route} />
 ));
 
 ReactDOM.render(
-  <HashRouter>
-    <Provider store={store}>
-      <div>{routeComponents}</div>
-    </Provider>
-  </HashRouter>,
-  document.getElementById('root')
+    <HashRouter>
+        <Provider store={store}>
+            <div>{routeComponents}</div>
+        </Provider>
+    </HashRouter>,
+    document.getElementById('root')
 );
