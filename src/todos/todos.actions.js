@@ -1,6 +1,7 @@
 export const ADD_TODO = '@@TODOS/ADD_TODO';
 export const SET_VISIBILITY_TODO = '@@TODOS/SET_VISIBILITY_TODO';
 export const DELETE_TODO = '@@TODOS/DELETE_TODO';
+export const TOGGLE_VISIBILITY_TODO = '@@TODOs/TOGGLE_VISIBILITY_TODO';
 
 /**
  *
@@ -25,4 +26,9 @@ export const deleteTodo = key => ({
 export const setVisibilityTodo = (key, visible) => ({
     type: SET_VISIBILITY_TODO,
     payload: { key, visible }
+});
+
+export const toggleVisibilityTodo = key => ({
+    type: TOGGLE_VISIBILITY_TODO,
+    payload: { key }
 });

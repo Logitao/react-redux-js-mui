@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO } from './todos.actions';
+import { ADD_TODO, DELETE_TODO, TOGGLE_VISIBILITY_TODO } from './todos.actions';
 import _ from 'lodash';
 
 const initialState = {
@@ -22,22 +22,33 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    switch (action.type) {
+    const { type, payload } = action;
+
+    switch (type) {
         case ADD_TODO: {
+            const { todoItems } = state;
             return {
                 ...state,
-                key: action.payload.todo.key,
-                todoItems: [...state.todoItems, action.payload.todo]
+                key: payload.todo.key,
+                todoItems: [...todoItems, payload.todo]
             };
         }
         case DELETE_TODO: {
             const { todoItems } = state;
-
-            console.log(state);
-
             return {
                 ...state,
                 todoItems: _.dropRight(todoItems, 1)
+            };
+        }
+        case TOGGLE_VISIBILITY_TODO: {
+            const { todoItems } = state;
+            const { key } = payload;
+            const copy = todoItems;
+            copy[key - 1].done = !copy[key - 1].done;
+
+            return {
+                ...state,
+                todoItems: [...copy]
             };
         }
         default:
